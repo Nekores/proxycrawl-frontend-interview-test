@@ -26,11 +26,31 @@ block content
             
             h3.productName= product.name
 
-            h6.heading Price:
-            h5.price= product.price
+          if product.inStock
+            p (Stock available)
+          else
+            p (Stock not available)
+          
+          h6.heading Price:
+          if product.price
+            h2.price= product.price
+          else
+            p Not available
 
-            h6.heading Description:
-            p.description= product.description
+          h6.heading Rating:
+          p.mb-0= product.customerReview
+          p &nbsp;Total Reviews: 
+            span= product.customerReviewCount
+
+          h6.heading Description:
+          p.description= product.description
+
+            
+            h6.heading Features:
+            ul
+              each item in product.features
+                li
+                  p= item
             a(href=product.canonicalUrl target="_blank")
                button.btn.btn-primary.btn-lg View Product
 
