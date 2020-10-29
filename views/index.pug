@@ -9,13 +9,21 @@ block eod
     +loadModule('pages/index.js')
 
 block content
-  main
-    div Write your content here
-    form(method="POST" action="/product")
-      div
-        span ProxyCrawl Token
-        input(name="token")
-      div
-        span ProxyCrawl url (Example url: https://www.amazon.com/Philips-Norelco-AT830-46-Frustration/dp/B00JITDVD2 )
-        input(name="url")
-      input(type="submit")
+  main.index
+      div.container
+        div.row.justify-content-md-center.align-items-center
+          div.col-sm-12.col-md-6
+            div.homeFormStyle
+              h2 ProxyCrawl
+              p Write your content here
+              form(method="POST" action="/product")
+                div.form-group
+                  label(for="exampleInputEmail1") Token
+                  input(type="text" class="form-control" aria-describedby="token" name="token")
+                div.form-group
+                  label(for="exampleInputEmail1") Url
+                  input(type="text" class="form-control" aria-describedby="url" name="url")
+                  small(class="form-text text-muted") e.g: https://www.amazon.com/Philips-Norelco-AT830-46-Frustration/dp/B00JITDVD2
+                  br
+                  input(type="submit").btn.btn-primary.btn-block.btn-lg
+

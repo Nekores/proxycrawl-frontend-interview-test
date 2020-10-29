@@ -10,13 +10,27 @@ block eod
 
 block content
   main
-    div Write your content here
-    if error
-      p Ups there is an error, try again
-      p= error
-    else
-      ul
-        li Check console output to see all available properties.
-        li= product.name
-        li= product.price
-        li= product.description
+    div.container
+      .row
+        .col
+          img(src=product.mainImage)
+          ol
+            each item in product.images
+              li
+                img(src=item height="50px")
+        .col
+          if error
+            p Ups there is an error, try again
+            p= error
+          else
+            
+            h3.productName= product.name
+
+            h6.heading Price:
+            h5.price= product.price
+
+            h6.heading Description:
+            p.description= product.description
+            a(href=product.canonicalUrl target="_blank")
+               button.btn.btn-primary.btn-lg View Product
+

@@ -1,3 +1,26 @@
 .product {
-  // Styles for product page
+  background-color: #bdbdbd;
+  .row {
+    background: white;
+    padding: 30px;
+    border-radius: 5px;
+    margin-top: 100px;
+    box-shadow: -1px -1px 20px 0px #33333380;
+  }
+  .row {
+    .heading {
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    ol {
+      li {
+        display: inline-block;
+        margin: 12px 6px;
+        img {
+          border: 1px solid #333;
+        }
+      }
+    }
+  }
 }
