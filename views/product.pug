@@ -11,46 +11,61 @@ block eod
 block content
   main
     div.container
-      .row
-        .col
-          img(src=product.mainImage)
-          ol
-            each item in product.images
-              li
-                img(src=item height="50px")
-        .col
-          if error
-            p Ups there is an error, try again
-            p= error
-          else
-            
-            h3.productName= product.name
-
-          if product.inStock
-            p (Stock available)
-          else
-            p (Stock not available)
-          
-          h6.heading Price:
-          if product.price
-            h2.price= product.price
-          else
-            p Not available
-
-          h6.heading Rating:
-          p.mb-0= product.customerReview
-          p &nbsp;Total Reviews: 
-            span= product.customerReviewCount
-
-          h6.heading Description:
-          p.description= product.description
-
-            
-            h6.heading Features:
-            ul
-              each item in product.features
+      //- if error
+      if error
+        .row
+          .col
+            div.jumbotron
+              h1.display-4 Oops!
+                span= error
+              p.lead There is an error, try again
+              hr.my-4
+              p Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos neque debitis, ipsa officiis.
+              a(class="btn btn-primary btn-lg" href="/" role="button") Try Again
+      //- If no error
+      else
+        .row
+          .col
+            img(src=product.mainImage)
+            ol
+              each item in product.images
                 li
-                  p= item
+                  img(src=item height="50px")
+            //- Button link
             a(href=product.canonicalUrl target="_blank")
-               button.btn.btn-primary.btn-lg View Product
+              button.btn.btn-primary.btn-lg.btn-block View Product
+          .col    
+              h3.productName= product.name
+
+              //- Stock true/false
+              if product.inStock
+                p (Stock available)
+              else
+                p (Stock not available)
+              
+              //- Product Price
+              h6.heading Price:
+              if product.price
+                h2.price= product.price
+              else
+                p Not available
+              
+              //- Reviews
+              h6.heading Rating:
+              p.mb-0= product.customerReview
+              p &nbsp;Total Reviews: 
+                span= product.customerReviewCount
+
+              //- Description
+              h6.heading Description:
+              p.description= product.description
+
+              //- Features
+              h6.heading Features:
+              ul
+                each item in product.features
+                  li
+                    p= item
+              hr
+              
 
